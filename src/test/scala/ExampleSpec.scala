@@ -4,21 +4,7 @@ import org.specs._
 
 import dispatch._
 
-/** TODO repackage in lib */
-trait Served extends Specification {
-  shareVariables()
-
-  import unfiltered.server._
-  def setup: (Server => Server)
-  val port = 9090
-  lazy val server = setup(new Http(port))
-  val host = :/("localhost", port)
-
-  doBeforeSpec { server.start() }
-  doAfterSpec { server.stop() }
-}
- 
-object ExampleSpec extends Specification with Served {
+object ExampleSpec extends Specification with unfiltered.spec.Served {
   
   import dispatch._
   
