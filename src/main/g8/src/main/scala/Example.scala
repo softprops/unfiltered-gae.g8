@@ -3,12 +3,20 @@ package com.example
 import unfiltered.request._
 import unfiltered.response._
 
+import org.clapper.avsl.Logger
+
 /** unfiltered plan */
 class App extends unfiltered.filter.Plan {
   import QParams._
+  
+  val logger = Logger(classOf[App])
+  
   def intent = {
-    case GET(_) => view(Map.empty)(<p> What say you? </p>)
-    case POST(Params(params, _)) =>
+    case GET(Path(p, _)) => 
+      logger.debug("GET %s" format p)
+      view(Map.empty)(<p> What say you? </p>)
+    case POST(Path(p, Params(params, _))) =>
+      logger.debug("POST %s" format p)
       val vw = view(params)_
       val expected = for { 
         int <- lookup("int") is
@@ -21,7 +29,7 @@ class App extends unfiltered.filter.Plan {
             "%s is not a palindrome".format(s)
           } is
           required("missing palindrome")
-      } yield  vw(<p>Yup. { int.get } is an integer and { word.get } is a palindrome. </p>)
+      } yield vw(<p>Yup. { int.get } is an integer and { word.get } is a palindrome. </p>)
       expected(params) orFail { fails =>
         vw(<ul> { fails.map { f => <li>{f.error} </li> } } </ul>)
       }
@@ -44,7 +52,10 @@ class App extends unfiltered.filter.Plan {
 
 /** embedded server */
 object Server {
+  val logger = Logger(Server.getClass)
+  
   def main(args: Array[String]) {
+    logger.info("starting unfiltered app at localhost on port %s" format 8080)
     unfiltered.jetty.Http(8080).filter(new App).run
   }
 }
