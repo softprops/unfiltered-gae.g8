@@ -9,7 +9,8 @@ class Project(info: ProjectInfo) extends DefaultProject(info) {
 
   // testing
   lazy val uf_spec = "net.databinder" %% "unfiltered-spec" % uf_version % "test"
-  lazy val jboss = "JBoss repository" at "http://repository.jboss.org/nexus/content/groups/public"
+  lazy val jboss = "JBoss repository" at 
+    "http://repository.jboss.org/maven2"
   
   // logging
   val javaNetRepo = "Java.net Repository for Maven" at "http://download.java.net/maven/2"
