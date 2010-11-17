@@ -15,5 +15,5 @@ class Project(info: ProjectInfo) extends DefaultProject(info) {
   // logging
   val javaNetRepo = "Java.net Repository for Maven" at "http://download.java.net/maven/2"
   val newReleaseToolsRepository = ScalaToolsSnapshots
-  val avsl = "org.clapper" %% "avsl" % "0.3"
+  val avsl = "org.clapper" %% "avsl" % "0.3.1"
 }
