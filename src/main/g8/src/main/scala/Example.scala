@@ -14,7 +14,7 @@ class App extends unfiltered.filter.Plan {
   def intent = {
     case GET(Path(p, _)) => 
       logger.debug("GET %s" format p)
-      view(Map.empty)(<p> What say you? </p>)
+      Ok ~> view(Map.empty)(<p> What say you? </p>)
     case POST(Path(p, Params(params, _))) =>
       logger.debug("POST %s" format p)
       val vw = view(params)_
