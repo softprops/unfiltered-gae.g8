@@ -3,4 +3,4 @@ lib_managed
 src_managed
 project/boot
 .DS_Store
-
+project/plugins/project/build.properties
