@@ -1,22 +1,16 @@
-package com.example
+package $org_id$
 
 import unfiltered.request._
 import unfiltered.response._
-
-import org.clapper.avsl.Logger
 
 /** unfiltered plan */
 class App extends unfiltered.filter.Plan {
   import QParams._
   
-  val logger = Logger(classOf[App])
-  
   def intent = {
-    case GET(Path(p, _)) => 
-      logger.debug("GET %s" format p)
+    case GET(Path(p, _)) =>
       Ok ~> view(Map.empty)(<p> What say you? </p>)
     case POST(Path(p, Params(params, _))) =>
-      logger.debug("POST %s" format p)
       val vw = view(params)_
       val expected = for { 
         int <- lookup("int") is
@@ -36,24 +30,23 @@ class App extends unfiltered.filter.Plan {
   def view(params: Map[String, Seq[String]])(body: scala.xml.NodeSeq) = {
     def p(k: String) = params.get(k).flatMap { _.headOption } getOrElse("")
     Html(
-     <html><body>
-       { body }
-       <form method="POST">
-         Integer <input name="int" value={ p("int") } ></input>
-         Palindrome <input name="palindrome" value={ p("palindrome") } />
-         <input type="submit" />
-       </form>
-     </body></html>
+     <html>
+      <head>
+        <link rel="stylesheet" type="text/css" href="/css/app.css" />
+        <script type="text/javascript" src="/js/app.js"></script>
+      </head>
+      <body>
+        <div id="container">
+          Congradulations. You are running on google's infrastructure.
+          { body }
+           <form method="POST">
+             Integer <input name="int" value={ p("int") } ></input>
+             Palindrome <input name="palindrome" value={ p("palindrome") } />
+             <input type="submit" />
+           </form>
+          </div>
+        </body>
+      </html>
    )
-  }
-}
-
-/** embedded server */
-object Server {
-  val logger = Logger(Server.getClass)
-  
-  def main(args: Array[String]) {
-    logger.info("starting unfiltered app at localhost on port %s" format 8080)
-    unfiltered.jetty.Http(8080).filter(new App).run
   }
 }
