@@ -2,9 +2,12 @@ A [giter8][g8] template for [Google App Engine][gae] [Unfiltered][unfiltered] ap
 
 ## install
 
+    # download and copy google app engines sdk to /path/to/your/gae-home
     g8 softprops/unfiltered-gae
     export APPENGINE_SDK_HOME=/path/to/your/gae-home
     cd your-app && sbt update dev-appserver-start
+ 
+point your browse at http://localhost:8080/
 
 ## TODO
 
