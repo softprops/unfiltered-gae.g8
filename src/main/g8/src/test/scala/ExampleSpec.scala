@@ -1,4 +1,4 @@
-package com.example
+package $org_id$
 
 import org.specs._
 
