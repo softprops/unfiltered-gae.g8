@@ -8,7 +8,17 @@ Build with [sbt 0.10.x][sbt]
     # download and copy google app engines sdk to /path/to/your/gae-home
     export APPENGINE_SDK_HOME=/path/to/your/gae-home
     g8 softprops/unfiltered-gae --name your-app
-    cd your-app && sbt dev-appserver-start
+    cd your-app
+
+A main class has been added to run a dev server until dev-appserver-start/stop have but added to the [gae sbt plugin][gaesbt]
+
+    sbt run
+
+To deploy
+
+    sbt appengine:deploy
+
+
 
 point your browse at http://localhost:8080/
 
