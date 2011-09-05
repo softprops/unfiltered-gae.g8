@@ -23,7 +23,7 @@ class App extends unfiltered.filter.Plan {
           required("missing palindrome")
       } yield vw(<p>Yup. { int.get } is an integer and { word.get } is a palindrome. </p>)
       expected(params) orFail { fails =>
-        vw(<ul> { fails.map { f => <li>{f.error} </li> } } </ul>)
+        vw(<ul class="fail"> { fails.map { f => <li>{f.error} </li> } } </ul>)
       }
   }
   def palindrome(s: String) = s.toLowerCase.reverse == s.toLowerCase
@@ -38,6 +38,7 @@ class App extends unfiltered.filter.Plan {
       <body>
         <div id="container">
           Congradulations. You are running on google's infrastructure.
+          <hr/>
           { body }
            <form method="POST">
              Integer <input name="int" value={ p("int") } ></input>
