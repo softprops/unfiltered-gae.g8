@@ -10,9 +10,10 @@ Build with [sbt 0.10.x][sbt]
     g8 softprops/unfiltered-gae --name your-app
     cd your-app
 
-A main class has been added to run a dev server until dev-appserver-start/stop have but added to the [gae sbt plugin][gaesbt]
+A support for running with the sbt [siasia/xsbt-web-plugin](https://github.com/siasia/xsbt-web-plugin#readme) plugin has been added to run a dev server until dev-appserver-start/stop have but added to the [gae sbt plugin][gaesbt]
 
-    sbt run
+    sbt
+    jetty-run
 
 To deploy
 
