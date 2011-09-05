@@ -8,7 +8,7 @@ class App extends unfiltered.filter.Plan {
   import QParams._
 
   def intent = {
-    case GET(Path(p)) =>
+    case GET(Path("/")) =>
       Ok ~> view(Map.empty)(<p> What say you? </p>)
     case POST(Path(p) & Params(params)) =>
       val vw = view(params)_
