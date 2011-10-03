@@ -4,7 +4,7 @@ name := "$name$"
 
 version := "$version$"
 
-seq(sbtappengine.AppenginePlugin.webSettings:  _*)
+seq(sbtappengine.Plugin.webSettings:  _*)
 
 libraryDependencies ++= Seq(
   "net.databinder" %% "unfiltered-filter" % "$unfiltered_version$",
