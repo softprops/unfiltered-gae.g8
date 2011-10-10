@@ -31,5 +31,5 @@ point your browse at http://localhost:8080/
 [eed3si9n]: https://github.com/eed3si9n/
 [gaesbt]: https://github.com/eed3si9n/sbt-appengine
 [g8]: http://github.com/n8han/giter8#readme
-[unfiltered]: http://github.com/n8han/unfiltered#readme
+[unfiltered]: http://github.com/unfiltered/unfiltered#readme
 [gae]: http://code.google.com/appengine/
