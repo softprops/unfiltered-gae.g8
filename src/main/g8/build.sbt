@@ -13,7 +13,7 @@ libraryDependencies ++= Seq(
   //, val jdo = "javax.jdo" % "jdo2-api" % "2.3-ea"
 ) ++ Seq( // local testing
   "javax.servlet" % "servlet-api" % "2.3" % "provided",
-   "org.eclipse.jetty" % "jetty-webapp" % "7.4.5.v20110725" % "jetty"
+   "org.eclipse.jetty" % "jetty-webapp" % "7.4.5.v20110725" % "container"
 )
 
 resolvers ++= Seq(
