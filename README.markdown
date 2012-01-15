@@ -10,18 +10,16 @@ Build with [sbt 0.10.x][sbt]
     g8 softprops/unfiltered-gae --name your-app
     cd your-app
 
-A support for running with the sbt [siasia/xsbt-web-plugin](https://github.com/siasia/xsbt-web-plugin#readme) plugin has been added to run a dev server until dev-appserver-start/stop have but added to the [gae sbt plugin][gaesbt]
+A support for running with the sbt [siasia/xsbt-web-plugin][webplugin] plugin has been added to run a dev server until dev-appserver-start/stop have but added to the [gae sbt plugin][gaesbt]
 
     sbt
-    jetty-run
+    container:start
 
 To deploy
 
     sbt appengine:deploy
 
-
-
-point your browse at http://localhost:8080/
+Point your browser at http://localhost:8080/
 
 ## TODO
 
@@ -33,3 +31,4 @@ point your browse at http://localhost:8080/
 [g8]: http://github.com/n8han/giter8#readme
 [unfiltered]: http://github.com/unfiltered/unfiltered#readme
 [gae]: http://code.google.com/appengine/
+[webplugin]: https://github.com/siasia/xsbt-web-plugin#readme
